@@ -148,7 +148,7 @@ paresReplicacao.colisao = function () {
                         x: score / 20,
                         y: 1
                     }, 600, Phaser.Easing.Linear.None, true);
-                    if (score == 2) {
+                    if (score == 20) {
                         game.time.events.remove(paresLoop);
                         mutacoes.gen(70, 85, 40, 1);
                     }
