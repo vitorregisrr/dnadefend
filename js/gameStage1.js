@@ -68,6 +68,5 @@ function atualizarState1() {
 
 
 function render() {
-    game.debug.body(dnaPolimerase.element);
     
 }
