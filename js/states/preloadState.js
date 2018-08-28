@@ -88,13 +88,9 @@ function precarregarPreload() {
     
 
     //plataformas
-    game.load.image('centriolo', 'assets/plataformas/centriolo.png');
-    game.load.image('golgi', 'assets/plataformas/golgi.png');
-    game.load.image('lisossomo', 'assets/plataformas/lisossomo.png');
     game.load.spritesheet('vacuolo', 'assets/plataformas/vacuolo.png', 160, 120, 46);
     game.load.image('faixaRNA', 'assets/plataformas/faixaRNA.png');
     game.load.image('faixaDNA', 'assets/plataformas/faixaDNA.png');
-    game.load.image('quadrado', 'assets/plataformas/quadrado.png');
     game.load.image('chaobg1', 'assets/plataformas/chaoRNA.png');
 
 
@@ -111,7 +107,6 @@ function precarregarPreload() {
     game.load.spritesheet('mutante1', 'assets/caracteres/mutante1.png',136,145,5);
 
     //backgrounds
-    game.load.image('citoplasma', 'assets/backgrounds/citplasma.jpg');
     game.load.image('background2', 'assets/backgrounds/background2.png');
     game.load.image('bgblur', 'assets/backgrounds/bgblur.png');
     game.load.image('background3', 'assets/backgrounds/background3.png');
@@ -127,22 +122,28 @@ function precarregarPreload() {
     game.load.spritesheet('mutante1Bullet', 'assets/bullets/mutante1Bullet.png',60, 45, 8);
 
     //audio
-    game.load.audio('rightSound','assets/audios/rightSound.ogg');
     game.load.audio('a','assets/audios/acessibilidade/a.ogg');
     game.load.audio('t','assets/audios/acessibilidade/t.ogg');
     game.load.audio('u','assets/audios/acessibilidade/u.ogg');
     game.load.audio('g','assets/audios/acessibilidade/g.ogg');
     game.load.audio('c','assets/audios/acessibilidade/c.ogg');
     game.load.audio('par','assets/audios/acessibilidade/par.ogg');
+
+    game.load.audio('attack','assets/audios/attack.ogg');
+    game.load.audio('hurt','assets/audios/hurt.ogg');
+    game.load.audio('right','assets/audios/right.ogg');
+    game.load.audio('boxChange','assets/audios/boxChange.ogg');
+    game.load.audio('mutScream','assets/audios/mutScream.ogg');
+
     game.load.audio('errado','assets/audios/acessibilidade/errado.ogg');
     game.load.audio('reparado','assets/audios/acessibilidade/reparado.ogg');
+    game.load.audio('mutacao-gerada','assets/audios/acessibilidade/mutacao-gerada.ogg');
 
     //efeitos
     game.load.spritesheet('explosion','assets/efeitos/explosion.png', 160, 160, 9);
 
     //gerador de amonoacidos
     game.load.spritesheet('gerador','assets/amnoacidos/gerador.png', 159, 122, 5);
-    game.load.spritesheet('dust','assets/amnoacidos/dust.png', 161, 90, 6);
     game.load.image('gerador-leftarrow', 'assets/amnoacidos/leftarrow.png');
     game.load.image('gerador-rightarrow', 'assets/amnoacidos/rightarrow.png');
     game.load.image('painelAmnoacido1', 'assets/amnoacidos/painelAmnoacido1.png');

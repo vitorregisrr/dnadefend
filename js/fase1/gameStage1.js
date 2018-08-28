@@ -9,6 +9,7 @@ var score = 0;
 var paresLoop;
 
 function criarState1() {
+    sounds.gen();
     locucao.gen();
     createModals();
     levelNumber = 1;

@@ -8,7 +8,32 @@ var mutacoes = {
     },
 
     gen: function (x, y, maxHp, dano) {
+        locucao.call('mutacao-gerada');
+        
+        setTimeout(function(){
+            sounds.play('mutScream');
+        },1600);
+
+        setTimeout(function(){
+            sounds.play('mutScream');
+        },4300);
+
+
+        setTimeout(function(){
+            sounds.play('mutScream');
+        }, 8300);
+
+        setTimeout(function(){
+            sounds.play('mutScream');
+        },14300);
+
+
+        setTimeout(function(){
+            sounds.play('mutScream');
+        },20000);
+
         dnaPolimerase.canAttack = true;
+
         paresReplicacao.bodys = new Array();
         paresReplicacao.gen(900, -50, 2);
         paresReplicacao.gen(500, -100, 3);

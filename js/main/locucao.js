@@ -9,6 +9,7 @@ var locucao = {
         this.par = game.add.audio('par');
         this.errado = game.add.audio('errado');
         this.reparado = game.add.audio('reparado');
+        this.mutacaogerada = game.add.audio('mutacao-gerada');
 
     },
 
@@ -64,6 +65,10 @@ var locucao = {
 
             case 'errado':
             this.errado.play();
+            break;
+
+            case 'mutacao-gerada':
+            this.mutacaogerada.play();
             break;
         }
     }

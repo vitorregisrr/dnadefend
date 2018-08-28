@@ -154,6 +154,7 @@ var paresReplicacao = {
                     e.cont = true;
 
                     if (e.mutacao) { //se for mutação
+                        sounds.play('boxChange');
                         locucao.call('reparado');
                         dnaPolimerase.animating = true;
                         dnaPolimerase.element.animations.play('changing');

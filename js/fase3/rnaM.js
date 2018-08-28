@@ -22,6 +22,7 @@ var rnaM = {
                     ['a', 'c', 'c']
                 ];
                 this.aminoacidos = ['metionina', 'triptofano', 'treomina', 'acido-glutaminico', 'prolina', 'alanina', 'leucina', 'triptofano'];
+                this.aminoacidos = [0, 1, 2, 3, 4, 5, 6, 1];
                 break;
 
             case 2:
@@ -37,6 +38,7 @@ var rnaM = {
                     ['u', 'g', 'a']
                 ];
                 this.aminoacidos = ['metionina', 'acido-glutaminico', 'treomina', 'prolina', 'triptofano', 'leucina', 'alanina', 'treomina'];
+                this.aminoacidos = [0, 3, 2, 4, 1, 6, 5, 2];
                 break;
 
             case 3:
@@ -52,9 +54,8 @@ var rnaM = {
                     ['g', 'g', 'g']
                 ];
                 this.aminoacidos = ['metionina', 'alanina', 'acido-glutaminico', 'leucina', 'triptofano', 'prolina', 'treomina', 'prolina'];
+                this.aminoacidos = [0, 5, 3, 6, 1, 4, 2, 4];
                 break;
         }
-
-        console.log(this.rnaT)
     }
 }

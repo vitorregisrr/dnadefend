@@ -1,6 +1,6 @@
-var config = {
-    locucao : false,
-    libras : false,
-    sons : true,
+config = {
+    locucao: true,
+    libras: false,
+    sounds: true,
     musica: true
 }

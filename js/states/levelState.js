@@ -6,12 +6,10 @@ var levelState = {
 //local storage progress stars array
 var starsArray;
 if (!localStorage.starsArray) {
-	//starsArray = [0, 4, 4];
-	starsArray = [3, 3, 3];
+	starsArray = [0, 4, 4];
 	localStorage.setItem('starsArray', JSON.stringify(starsArray));
 } else {
-	//starsArray = JSON.parse(localStorage.starsArray);
-	starsArray = [3, 3, 3];
+	starsArray = JSON.parse(localStorage.starsArray);
 }
 
 var levels;

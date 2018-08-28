@@ -6,6 +6,7 @@ var gameState2 = {
 
 var rna, dna,chao;
 function criarState2() {
+    sounds.gen();
     createModals();
     locucao.gen();
     

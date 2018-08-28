@@ -43,7 +43,6 @@ var amnoacidos = {
     drop: function(){
         var pointer = game.input.activePointer;
         e = this.grabing;
-        console.log(jogada);
 
         if (Math.abs(pointer.x - dnaPolimerase.element.x) < 100 && Math.abs(pointer.y - dnaPolimerase.element.y) < 100) {
             e.x = pointer.x;
@@ -53,7 +52,8 @@ var amnoacidos = {
             dnaPolimerase.grabing = false;
 
             var p = posicoesEncaixe[jogada -1];
-            if(e.x - p < 50 && e.y - 400 < 50){ //se estiver na area do rnaT encaixavel
+            if(e.x - p < 50 && e.y - 400 < 50 && !ribossomo.moving){ //se estiver na area do rnaT encaixavel
+                console.log(e.id);
                 this.grabing = false;
                 this.encaixados.add(e);
                 this.last.encaixado = true;
@@ -62,6 +62,25 @@ var amnoacidos = {
                 ribossomo.move();
                 jogada++;
             }
+        }
+    },
+
+    check : function(){
+        
+        for(x = 0; x <= this.encaixados.length ; x++){
+
+            if(this.encaixados.getAt(x).id == rnaM.aminoacidos[x]){
+                this.encaixados.getAt(x).frame = 1;
+                mutacoesReparadas++;
+                textMutacoesReparadas.setText(mutacoesReparadas);
+                
+            }else{
+                this.encaixados.getAt(x).frame = 2;
+                mutacoesCriadas++;
+                textMutacoesCriadas.setText(mutacoesCriadas);
+            }
+
+            console.log('id'+this.encaixados.getAt(x).id+ ' certo:'+rnaM.aminoacidos[x]);
         }
     }
 }

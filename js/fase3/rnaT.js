@@ -118,10 +118,6 @@ var rnaT = {
             //setta o checked para não ser mais alteravel
             this.group.getAt(x).checked = true;
 
-            //testa se a letra da trinca é igual a resposta certa
-            console.log(trinca[y], "correto: ", rnaM.rnaT[jogada][y]);
-            console.log(trinca[y] == rnaM.rnaT[jogada][y]);
-
             if (trinca[y] == rnaM.rnaT[jogada][y]) {
                 respostas.push(true);
                 mutacoesReparadas++;
@@ -157,6 +153,7 @@ var rnaT = {
 
     change: function (e) {
         if (!this.checked) {
+            sounds.play('boxChange');
             var possibilidadesRNAt = ['a', 't', 'u', 'c', 'g'];
             e.loadTexture('parT' + l + '-' + possibilidadesRNAt[i]);
             e.letra = possibilidadesRNAt[i];
@@ -183,6 +180,7 @@ var rnaT = {
             if (!rnaT.colidindoBtn) {
                 rnaT.colidindoBtn = true;
                 if (!rnaT.checked) {
+                    sounds.play('boxChange');
                     rnaT.check();
                 }
             }

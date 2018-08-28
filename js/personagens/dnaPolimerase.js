@@ -1,4 +1,4 @@
-const fireRate = 650,
+var fireRate = 650,
     nextFire = 0;
 var dnaPolimerase = {
 
@@ -35,6 +35,7 @@ var dnaPolimerase = {
 
     attack: function (e) {
         if (this.element.hp > 0 && !dnaPolimerase.grabing && dnaPolimerase.canAttack) {
+            sounds.attack.play();
             if (game.time.now > nextFire && this.element.bulletsGroup.countDead() > 0) {
 
                 dnaPolimerase.animating = true;
@@ -51,6 +52,8 @@ var dnaPolimerase = {
     },
 
     hited: function (demage) {
+
+        sounds.play('hurt');
         if (this.element.hp > 0) {
 
             this.animating = true;
