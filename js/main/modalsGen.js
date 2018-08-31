@@ -2,11 +2,11 @@ var reg = {};
 
 function createModals() {
 
-
     reg.modal.createModal({
         type: "configModal",
         includeBackground: false,
         modalCloseOnInput: false,
+        animation: 'fade',
         itemsArr: [{
                 type: "image",
                 content: "configModal",
@@ -29,10 +29,10 @@ function createModals() {
                 offsetX: 90,
                 frame: 0,
                 callback: function (e) {
-                    if(config.libras){
+                    if (config.libras) {
                         e.frame = 0;
                         config.libras = false;
-                    } else{
+                    } else {
                         e.frame = 1;
                         config.libras = true;
                     }
@@ -44,10 +44,10 @@ function createModals() {
                 offsetY: -35,
                 offsetX: 90,
                 callback: function (e) {
-                    if(config.locucao){
+                    if (config.locucao) {
                         e.frame = 0;
                         config.locucao = false;
-                    } else{
+                    } else {
                         e.frame = 1;
                         config.locucao = true;
                     }
@@ -59,12 +59,12 @@ function createModals() {
                 offsetY: 45,
                 offsetX: 90,
                 callback: function (e) {
-                    if(config.sons){
+                    if (config.sounds) {
                         e.frame = 0;
-                        config.sons = false;
-                    } else{
+                        config.sounds = false;
+                    } else {
                         e.frame = 1;
-                        config.sons = true;
+                        config.sounds = true;
                     }
                 }
             },
@@ -74,10 +74,10 @@ function createModals() {
                 offsetY: 120,
                 offsetX: 90,
                 callback: function (e) {
-                    if(config.musica){
+                    if (config.musica) {
                         e.frame = 0;
                         config.musica = false;
-                    } else{
+                    } else {
                         e.frame = 1;
                         config.musica = true;
                     }
@@ -88,9 +88,62 @@ function createModals() {
     });
 
     reg.modal.createModal({
+        type: "librasModal",
+        includeBackground: false,
+        modalCloseOnInput: false,
+        animation: 'fade',
+        itemsArr: [{
+                type: "video",
+                content: "libras1",
+                offsetY: -20,
+                contentScale: 0.5,
+            },
+            {
+                type: "image",
+                content: "btnOk",
+                offsetY: 200,
+                offsetX: 0,
+                callback: function () {
+                    reg.modal.hideModal("librasModal");
+                }
+            },
+        ]
+    });
+
+    reg.modal.createModal({
+        type: "infoModal",
+        includeBackground: false,
+        modalCloseOnInput: false,
+        animation: 'fade',
+        itemsArr: [{
+                type: "image",
+                content: "tutorial1",
+                offsetY: -20,
+                contentScale: 1,
+            }, {
+                type: "text",
+                content: "libras1",
+                offsetY: -20,
+                contentScale: 0.5,
+            },
+            {
+                type: "image",
+                content: "btnOk",
+                offsetY: 200,
+                offsetX: 0,
+                callback: function () {
+                    reg.modal.hideModal("infoModal");
+                }
+            },
+        ]
+    });
+
+
+    reg.modal.createModal({
         type: "gameSucessModal",
         includeBackground: false,
         modalCloseOnInput: false,
+        animation: 'fade',
         itemsArr: [{
                 type: "image",
                 content: "levelSuccess",
@@ -101,7 +154,7 @@ function createModals() {
                 type: "text",
                 content: "0",
                 fontSize: 25,
-                fontFamily: "Komika",
+                fontFamily: "Arial Black",
                 color: "0xd9d9d9",
                 offsetY: -45,
                 offsetX: -60,
@@ -110,7 +163,7 @@ function createModals() {
                 type: "text",
                 content: "0",
                 fontSize: 25,
-                fontFamily: "Komika",
+                fontFamily: "Arial Black",
                 color: "0xd9d9d9",
                 offsetY: -45,
                 offsetX: 60,
@@ -158,8 +211,8 @@ function createModals() {
     reg.modal.createModal({
         type: "pausedModal",
         includeBackground: false,
-        animation: 'fade',
         modalCloseOnInput: true,
+        animation: 'fade',
         itemsArr: [{
                 type: "image",
                 content: "pausedModal",
@@ -233,43 +286,51 @@ function showGameSucessModal() {
     reg.modal.showModal("gameSucessModal");
 }
 
+function showLibrasModal() {
+    reg.modal.showModal("librasModal");
+}
+
+function showInfoModal() {
+    reg.modal.showModal("infoModal");
+}
+
 function showConfigModal() {
     reg.modal.showModal("configModal");
-    
+
     //setando o valor dos switchs
 
     //libras
     var f;
-    if(config.libras){
+    if (config.libras) {
         f = 1;
-    }else{
+    } else {
         f = 0;
     }
-    reg.modal.updateModalValue(f, 'configModal', 2 );
+    reg.modal.updateModalValue(f, 'configModal', 2);
 
     //locucao
-    if(config.locucao){
+    if (config.locucao) {
         f = 1;
-    }else{
+    } else {
         f = 0;
     }
-    reg.modal.updateModalValue(f, 'configModal', 3 );
+    reg.modal.updateModalValue(f, 'configModal', 3);
 
     //efeitos sonoros
-    if(config.sons){
+    if (config.sounds) {
         f = 1;
-    }else{
+    } else {
         f = 0;
     }
-    reg.modal.updateModalValue(f, 'configModal', 4 );
+    reg.modal.updateModalValue(f, 'configModal', 4);
 
     //efeitos musica
-    if(config.musica){
+    if (config.musica) {
         f = 1;
-    }else{
+    } else {
         f = 0;
     }
-    reg.modal.updateModalValue(f, 'configModal', 5 );
+    reg.modal.updateModalValue(f, 'configModal', 5);
 }
 
 function showPausedModal() {

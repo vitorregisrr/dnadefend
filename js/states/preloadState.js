@@ -24,6 +24,12 @@ function precarregarPreload() {
 
     slider = new phaseSlider(game); 
     
+
+    //videos
+    game.load.video('libras1', 'assets/videoslibras/libras1.mp4');
+    game.load.video('libras2', 'assets/videoslibras/libras2.mp4');
+
+
     //caracteres
     
     //UI elements
@@ -40,6 +46,7 @@ function precarregarPreload() {
     game.load.image('btnRight', 'assets/ui/btnRight.png');
     game.load.image('btnPause', 'assets/ui/btnPause.png');
     game.load.image('btnClose', 'assets/ui/btnClose.png');
+    game.load.image('btnEscutar', 'assets/ui/btnEscutar.png');
     game.load.image('topStatistics', 'assets/ui/topStatistics.png');
     game.load.image('stateProgressBar', 'assets/ui/stateProgressBar.png');
     game.load.spritesheet("levels", "assets/ui/levels.png", 100, 70);
@@ -48,6 +55,13 @@ function precarregarPreload() {
     game.load.image("pausedModal", "assets/ui/pausedModal.png");
     game.load.image("configModal", "assets/ui/configModal.png");
     game.load.image("btnOk", "assets/ui/btnOk.png");
+
+    game.load.image("librasBtn", "assets/ui/librasBtn.png");
+    game.load.image("iBtn", "assets/ui/iBtn.png");
+    game.load.image("tutorial1", "assets/ui/tutorial1.png");
+    game.load.image("tutorial2", "assets/ui/tutorial2.png");
+    game.load.image("tutorial3", "assets/ui/tutorial3.png");
+
     game.load.spritesheet("switch", "assets/ui/switch.png", 75, 34, 2);
 
     
@@ -67,10 +81,7 @@ function precarregarPreload() {
 
     game.load.spritesheet('parT-conector', 'assets/paresTranscricao/traco.png',6,190);
     game.load.spritesheet('corrigirBtn', 'assets/paresTranscricao/botaocorrigir.png', 100, 60, 2);
-
-    //RNAt
-    game.load.spritesheet('enviarBtn', 'assets/rnaT/botaoenviar.png', 75, 60, 2);
- 
+    game.load.spritesheet('btnProsseguir', 'assets/paresTranscricao/prosseguirBtn.png', 100, 60, 2);
 
     //pares replicacao
     game.load.spritesheet('g-c', 'assets/pares/g-c.png', 45, 40);

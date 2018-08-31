@@ -12,6 +12,8 @@ paresTranscricao.presets = function () {
         l = "";
     }
 
+    this.prosseguido = false;
+    this.escutando = false;
     mutacoesCriadas = 0;
     mutacoesReparadas = 0;
     this.group = game.add.group();
@@ -30,10 +32,12 @@ paresTranscricao.presets = function () {
 
 paresTranscricao.gen = function () {
 
-    //botao para escutar as letras se a locucao estiver ativa
-    this.escutarBtn = game.add.button(680, 173, 'corrigirBtn', this.escutarDNA);
-    game.physics.arcade.enable(this.escutarBtn);
+    if (config.locucao) {
+        //botao para escutar as letras se a locucao estiver ativa
+        this.escutarBtn = game.add.button(350, 103, 'btnEscutar', this.escutarDNA);
+        game.physics.arcade.enable(this.escutarBtn);
 
+    }
 
     this.checkButton = game.add.sprite(680, 370, 'corrigirBtn');
     game.physics.arcade.enable(this.checkButton);
@@ -81,44 +85,197 @@ paresTranscricao.gen = function () {
         e.alpha = 1;
         xo += e.width + 30;
     }
+    
     game.world.bringToTop(this.group);
 }
 
 paresTranscricao.check = function () {
-    this.checkButton.frame = 1;
-    setTimeout(function () {
-        paresTranscricao.checkButton.frame = 0;
-    }, 150);
-    this.checked = true;
-    var respostas = new Array();
+    if (!paresTranscricao.escutando) {
+        this.checkButton.frame = 1;
+            setTimeout(function () {
+                paresTranscricao.checkButton.frame = 0;
+            }, 150);
+            
+        if (!paresTranscricao.checked) {
 
-    for (var x = 0; x <= 7; x++) {
-        if (this.quadradosRNA[x].letra == this.quadradosDNA[x].par) {
-            respostas.push(true);
-            mutacoesReparadas++;
-            textMutacoesReparadas.setText(mutacoesReparadas);
+            this.checkButton.loadTexture('btnProsseguir');
+            this.checked = true;
+            paresTranscricao.checked = true;
+            var respostas = new Array();
+
+            for (var x = 0; x <= 7; x++) {
+                if (this.quadradosRNA[x].letra == this.quadradosDNA[x].par) {
+                    respostas.push(true);
+                    mutacoesReparadas++;
+                    textMutacoesReparadas.setText(mutacoesReparadas);
+                } else {
+                    respostas.push(false);
+                    mutacoesCriadas++;
+                    textMutacoesCriadas.setText(mutacoesCriadas);
+                }
+            }
+
+            for (x = 0; x <= this.quadradosRNA.length - 1; x++) {
+                if (respostas[x]) {
+                    this.conectores[x].frame = 1;
+                    this.quadradosDNA[x].frame = 1;
+                    this.quadradosRNA[x].frame = 1;
+                } else {
+                    this.conectores[x].frame = 2;
+                    this.quadradosDNA[x].frame = 2;
+                    this.quadradosRNA[x].frame = 2;
+                }
+
+            }
+
+            paresTranscricao.escutarCorrecao();
+
         } else {
-            respostas.push(false);
-            mutacoesCriadas++;
-            textMutacoesCriadas.setText(mutacoesCriadas);
+            paresTranscricao.prosseguir();
         }
     }
 
-    for (x = 0; x <= this.quadradosRNA.length - 1; x++) {
-        if (respostas[x]) {
-            this.conectores[x].frame = 1;
-            this.quadradosDNA[x].frame = 1;
-            this.quadradosRNA[x].frame = 1;
-        } else {
-            this.conectores[x].frame = 2;
-            this.quadradosDNA[x].frame = 2;
-            this.quadradosRNA[x].frame = 2;
-        }
+}
 
+paresTranscricao.returnPar = function (r) {
+    switch (r) {
+        case 'a':
+            return 'u';
+            break;
+
+        case 't':
+            return 'a';
+            break;
+
+        case 'g':
+            return 'c';
+            break;
+
+        case 'c':
+            return 'g';
+            break;
     }
 
-    //saida do cenário
-    game.time.events.add(Phaser.Timer.SECOND * 4, function () {
+}
+
+var i = 0;
+paresTranscricao.change = function (e) {
+    if (!this.checked) {
+        sounds.play('boxChange');
+        var possibilidadesRNA = ['a', 't', 'u', 'c', 'g'];
+        e.loadTexture('parT' + l + '-' + possibilidadesRNA[i]);
+        e.letra = possibilidadesRNA[i];
+        locucao.call(e.letra);
+        i++;
+        if (i == 5) {
+            i = 0;
+        }
+    }
+}
+
+paresTranscricao.colisao = function () {
+    this.group.forEachAlive(function (quadrado) {
+        game.physics.arcade.collide(quadrado, dnaPolimerase.element, function () {
+            if (!paresTranscricao.colidindo) {
+                paresTranscricao.colidindo = true;
+                paresTranscricao.change(quadrado);
+            }
+
+        }, null, this);
+    });
+
+    game.physics.arcade.collide(paresTranscricao.checkButton, dnaPolimerase.element, function () {
+        if (!paresTranscricao.colidindo) {
+            paresTranscricao.colidindo = true;
+            sounds.play('boxChange');
+            paresTranscricao.check();
+        }
+
+    }, null, this);
+
+
+}
+
+paresTranscricao.escutarDNA = function () {
+    if (!paresTranscricao.checked) {
+        if (!paresTranscricao.escutando && config.locucao) {
+            var time = 300;
+            paresTranscricao.escutando = true;
+            for (x = 0; x <= paresTranscricao.quadradosDNA.length - 1; x++) {
+                (function () {
+                    var l = paresTranscricao.quadradosDNA[x].letra;
+                    setTimeout(function () {
+                        locucao.call(l);
+                        console.log(l);
+                    }, time, l)
+                })(i);
+                time += 800;
+            }
+
+            setTimeout(function () {
+                paresTranscricao.escutando = false;
+            }, 800 * paresTranscricao.quadradosDNA.length - 300);
+        }
+    } else {
+        paresTranscricao.escutarCorrecao();
+    }
+
+
+}
+
+paresTranscricao.escutarCorrecao = function () {
+    if (!paresTranscricao.escutando && config.locucao) {
+        var time = 300;
+
+        paresTranscricao.escutando = true;
+        for (x = 0; x <= paresTranscricao.quadradosRNA.length - 1; x++) {
+            (function () {
+
+                var l = [paresTranscricao.quadradosDNA[x], paresTranscricao.quadradosRNA[x]];
+
+                game.time.events.add(time, function () {
+
+                    locucao.call('par');
+
+                    setTimeout(function () {
+                        locucao.call(l[0].letra);
+                    }, 400);
+
+                    setTimeout(function () {
+                        locucao.call(l[1].letra);
+                    }, 900);
+
+                    if (l[1].frame == 2) {
+
+                        setTimeout(function () {
+                            locucao.call('errado');
+                        }, 1500);
+
+                    } else {
+
+                        setTimeout(function () {
+                            locucao.call('reparado');
+                        }, 1500);
+                    }
+
+                }, this).autoDestroy = true;
+
+            })(i);
+            time += 2400;
+        }
+
+        setTimeout(function () {
+            paresTranscricao.escutando = false;
+        }, 20000);
+    }
+
+}
+
+paresTranscricao.prosseguir = function () {
+    if (!this.prosseguido) {
+        this.prosseguido = true;
+
+        //saida do cenário
         for (x = 0; x <= paresTranscricao.quadradosRNA.length - 1; x++) {
 
             game.add.tween(paresTranscricao.quadradosDNA[x]).to({
@@ -161,90 +318,5 @@ paresTranscricao.check = function () {
                 paresTranscricao.escutarBtn.destroy();
             }, this, null);
         }
-
-    }, this);
-
-}
-
-paresTranscricao.returnPar = function (r) {
-    switch (r) {
-        case 'a':
-            return 'u';
-            break;
-
-        case 't':
-            return 'a';
-            break;
-
-        case 'g':
-            return 'c';
-            break;
-
-        case 'c':
-            return 'g';
-            break;
-    }
-
-}
-
-var i = 0;
-paresTranscricao.change = function (e) {
-    if (!this.checked) {
-
-        sounds.play('boxChange');
-        var possibilidadesRNA = ['a', 't', 'u', 'c', 'g'];
-        e.loadTexture('parT' + l + '-' + possibilidadesRNA[i]);
-        e.letra = possibilidadesRNA[i];
-        locucao.call(e.letra);
-        i++;
-        if (i == 5) {
-            i = 0;
-        }
-        
-    }
-}
-
-paresTranscricao.colisao = function () {
-    this.group.forEachAlive(function (quadrado) {
-        game.physics.arcade.collide(quadrado, dnaPolimerase.element, function () {
-            if (!paresTranscricao.colidindo) {
-                paresTranscricao.colidindo = true;
-                paresTranscricao.change(quadrado);
-            }
-
-        }, null, this);
-    });
-
-    game.physics.arcade.collide(paresTranscricao.checkButton, dnaPolimerase.element, function () {
-        if (!paresTranscricao.colidindo) {
-            paresTranscricao.colidindo = true;
-            if (!paresTranscricao.checked) {
-                sounds.play('boxChange');
-                paresTranscricao.check();
-            }
-        }
-
-    }, null, this);
-
-
-}
-
-paresTranscricao.escutarDNA = function () {
-    var time = 300;
-    for (x = 0; x <= paresTranscricao.quadradosDNA.length - 1; x++) {
-
-        //pegando o valor externamente
-
-        (function () {
-            var l = paresTranscricao.quadradosDNA[x].letra;
-            console.log(l)
-            setTimeout(function () {
-                locucao.call(l);
-                console.log(l);
-            }, time, l)
-        })(i);
-
-
-        time += 800;
     }
 }

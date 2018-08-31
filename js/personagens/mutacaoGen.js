@@ -10,27 +10,14 @@ var mutacoes = {
     gen: function (x, y, maxHp, dano) {
         locucao.call('mutacao-gerada');
         
-        setTimeout(function(){
-            sounds.play('mutScream');
-        },1600);
+        var time = 0;
+        for(x = 0; x <= 5; x++){
+            game.time.events.add(time, function () {
+                sounds.play('mutScream');
+            }, this).autoDestroy = true;
 
-        setTimeout(function(){
-            sounds.play('mutScream');
-        },4300);
-
-
-        setTimeout(function(){
-            sounds.play('mutScream');
-        }, 8300);
-
-        setTimeout(function(){
-            sounds.play('mutScream');
-        },14300);
-
-
-        setTimeout(function(){
-            sounds.play('mutScream');
-        },20000);
+            time += 4000;
+        }
 
         dnaPolimerase.canAttack = true;
 

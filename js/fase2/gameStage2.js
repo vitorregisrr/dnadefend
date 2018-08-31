@@ -6,9 +6,10 @@ var gameState2 = {
 
 var rna, dna,chao;
 function criarState2() {
-    sounds.gen();
+    game.world.setBounds(0, 0, 800, 600);
     createModals();
     locucao.gen();
+    sounds.gen();
     
     levelNumber = 2;
     game.physics.startSystem(Phaser.Physics.ARCADE);

@@ -35,9 +35,8 @@ var dnaPolimerase = {
 
     attack: function (e) {
         if (this.element.hp > 0 && !dnaPolimerase.grabing && dnaPolimerase.canAttack) {
-            sounds.attack.play();
             if (game.time.now > nextFire && this.element.bulletsGroup.countDead() > 0) {
-
+                sounds.play('attack');
                 dnaPolimerase.animating = true;
                 this.element.animations.play('attack', 10);
                 game.time.events.add(250, function () {

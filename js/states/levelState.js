@@ -47,6 +47,23 @@ function criarLevelState() {
 		levels.add(e);
 	}
 	
+	//botoes info
+
+	var info1= game.add.button(77, 135, 'iBtn', mostraInfo);
+	info1.id = 1;
+	var libras1= game.add.button(125, 135, 'librasBtn',mostraLibras, 1);
+	libras1.id = 1;
+
+	var info2= game.add.button(317, 135, 'iBtn', mostraInfo, 2);
+	info2.id = 2;
+	var libras2= game.add.button(365, 135, 'librasBtn', mostraLibras, 2);
+	libras2.id = 2;
+
+	var info3 = game.add.button(572, 135, 'iBtn', mostraInfo, 3);
+	info3.id = 3;
+	var libras3 = game.add.button(620, 135, 'librasBtn',mostraLibras, 3);
+	libras3.id = 3;
+
 	var backBtn = game.add.button(55, 60, 'btnLeft');
 	backBtn.anchor.setTo(0.5, 0.5);
 	backBtn.scale.setTo(0.8, 0.8);
@@ -110,4 +127,16 @@ function thumbClicked(button) {
 		}, 20, Phaser.Easing.Cubic.None);
 		buttonTween.start();
 	}
+}
+
+function mostraInfo(e){
+	showInfoModal();
+}
+
+
+function mostraLibras(e){
+	var src = 'assets/videoslibras/libras'+e.id+'.mp4';
+	reg.modal.updateModalValue(src, 'librasModal', 0 );
+	showLibrasModal();
+
 }

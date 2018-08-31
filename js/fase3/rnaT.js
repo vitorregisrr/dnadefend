@@ -1,7 +1,8 @@
 var jogada,
-    rnaTxo = 8,
-    contTrinca = 0,
-    i = 0;
+    contTrinca,
+    i,
+    rnaTxo;
+
 var rnaT = {
     presets: function () {
         if (config.libras) {
@@ -10,7 +11,20 @@ var rnaT = {
             l = "";
         }
 
+        if (config.locucao) {
+            //botao para escutar as letras se a locucao estiver ativa
+            this.escutarBtn = game.add.button(350, 103, 'btnEscutar', this.escutar);
+            game.physics.arcade.enable(this.escutarBtn);
+            this.escutarBtn.fixedToCamera = true;
+        }
+
+        ribossomo.generated = false;
+        this.escutando = false;
+        this.prosseguido = false;
+        rnaTxo = 8,
         jogada = 0;
+        contTrinca = 0;
+        i = 0;
         mutacoesCriadas = 0;
         mutacoesReparadas = 0;
         this.group = game.add.group();
@@ -74,7 +88,7 @@ var rnaT = {
             //aumenta o tamanho
             this.group.scale.set(1.2, 1.2);
         } else {
-           ribossomo.gen();
+           this.prosseguir();
         }
     },
 
@@ -179,11 +193,83 @@ var rnaT = {
         game.physics.arcade.collide(rnaT.checkButton, dnaPolimerase.element, function () {
             if (!rnaT.colidindoBtn) {
                 rnaT.colidindoBtn = true;
-                if (!rnaT.checked) {
-                    sounds.play('boxChange');
+                sounds.play('boxChange');
+                if (!this.podeProsseguir) {
                     rnaT.check();
+                } else {
+                    rnaT.prosseguir();
                 }
             }
         }, null, this);
+    },
+
+    mudaCertos: function () {
+        for (x = 0; x <= this.group.length - 1; x++) {
+            this.group.getAt(x).alpha = 0;
+            game.add.tween(this.group.getAt(x)).to({
+                alpha: 1
+            }, 200, Phaser.Easing.Linear.None, true);
+            this.group.getAt(x).loadTexture('parT-' + rnaM.rnaTC[x]);
+        }
+    },
+
+    prosseguir: function () {
+        if (!this.prosseguido) {
+            this.prosseguido = true;
+            ribossomo.gen();
+            rnaT.mudaCertos();
+            rnaT.checkButton.visible = false;
+        }
+    },
+
+    escutar: function () {
+        if (!rnaT.escutando && config.locucao) {
+            if (!ribossomo.generated) {
+                var time = 300;
+                rnaT.escutando = true;
+                for (x = 0; x <= rnaT.group.length - 1; x++) {
+                    (function () {
+                        var l = rnaT.group.getAt(x);
+
+                        game.time.events.add(time, function () {
+                            locucao.call(l.letra);
+
+                            if (l.frame == 2) {
+                                setTimeout(function () {
+                                    locucao.call('errado');
+                                }, 500);
+                            } else if (l.frame == 1) {
+                                setTimeout(function () {
+                                    locucao.call('reparado');
+                                }, 500);
+                            }
+
+                        }, this).autoDestroy = true;
+                    })(i);
+                    time += 1800;
+                }
+
+                setTimeout(function () {
+                    rnaT.escutando = false;
+                }, 1800 * rnaT.group.length);
+
+            } else {
+                var time = 300;
+                rnaT.escutando = true;
+                for (x = 0; x <= rnaM.rnaTC.length - 1; x++) {
+                    (function () {
+                        var l = rnaM.rnaTC[x];
+                        setTimeout(function () {
+                            locucao.call(l);
+                        }, time, l)
+                    })(i);
+                    time += 800;
+                }
+
+                setTimeout(function () {
+                    rnaT.escutando = false;
+                }, 800 * rnaM.rnaTC.length - 300);
+            }
+        }
     }
 }

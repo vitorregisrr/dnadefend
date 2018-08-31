@@ -9,6 +9,7 @@ var score = 0;
 var paresLoop;
 
 function criarState1() {
+    game.world.setBounds(0, 0, 800, 600);
     sounds.gen();
     locucao.gen();
     createModals();
@@ -44,8 +45,8 @@ function criarState1() {
 
     //pares gen
     paresReplicacao.presets();
-    paresLoop = game.time.events.loop(Phaser.Timer.SECOND * 2, function () {
-        paresReplicacao.gen(game.rnd.integerInRange(0, 700), -30, game.rnd.integerInRange(1, 11));
+    paresLoop = game.time.events.loop(Phaser.Timer.SECOND * 3, function () {
+        paresReplicacao.gen(game.rnd.integerInRange(0, 700), -50, game.rnd.integerInRange(1, 11));
     }, this);
 
     //cria a dna polimerase

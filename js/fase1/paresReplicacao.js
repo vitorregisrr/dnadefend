@@ -51,7 +51,7 @@ var paresReplicacao = {
                 this.bodys.push(this.group.create(x, y, 't-t'));
                 this.bodys[this.bodys.length - 1].mutacao = true;
                 this.bodys[this.bodys.length - 1].pair = 't-a';
-                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(60, 90);
+                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(20, 40);
                 locucao.call('t', 't', true);
                 break;
 
@@ -59,7 +59,7 @@ var paresReplicacao = {
                 this.bodys.push(this.group.create(x, y, 't-g'));
                 this.bodys[this.bodys.length - 1].mutacao = true;
                 this.bodys[this.bodys.length - 1].pair = 't-a';
-                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(60, 90);
+                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(20, 40);
                 locucao.call('t', 'g', true);
                 break;
 
@@ -67,7 +67,7 @@ var paresReplicacao = {
                 this.bodys.push(this.group.create(x, y, 't-c'));
                 this.bodys[this.bodys.length - 1].mutacao = true;
                 this.bodys[this.bodys.length - 1].pair = 't-a';
-                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(60, 90);
+                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(20, 40);
                 locucao.call('t', 'c', true);
 
                 break;
@@ -75,7 +75,7 @@ var paresReplicacao = {
             case 8:
                 this.bodys.push(this.group.create(x, y, 't-a'));
                 this.bodys[this.bodys.length - 1].mutacao = false;
-                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(60, 90);
+                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(20, 40);
                 locucao.call('t', 'a', true);
 
                 break;
@@ -84,7 +84,7 @@ var paresReplicacao = {
             case 9:
                 this.bodys.push(this.group.create(x, y, 'c-g'));
                 this.bodys[this.bodys.length - 1].mutacao = false;
-                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(60, 90);
+                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(20, 40);
                 locucao.call('c', 'g', true);
 
                 break;
@@ -92,7 +92,7 @@ var paresReplicacao = {
             case 10:
                 this.bodys.push(this.group.create(x, y, 'a-t'));
                 this.bodys[this.bodys.length - 1].mutacao = false;
-                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(60, 90);
+                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(20, 40);
                 locucao.call('a', 't', true);
 
                 break;
@@ -101,7 +101,7 @@ var paresReplicacao = {
                 this.bodys.push(this.group.create(x, y, 'a-g'));
                 this.bodys[this.bodys.length - 1].mutacao = true;
                 this.bodys[this.bodys.length - 1].pair = 'a-t';
-                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(60, 90);
+                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(20, 40);
                 locucao.call('a', 'g', true);
 
                 break;
@@ -110,7 +110,7 @@ var paresReplicacao = {
                 this.bodys.push(this.group.create(x, y, 'c-c'));
                 this.bodys[this.bodys.length - 1].mutacao = true;
                 this.bodys[this.bodys.length - 1].pair = 'c-g';
-                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(60, 90);
+                this.bodys[this.bodys.length - 1].body.gravity.y = game.rnd.integerInRange(20, 40);
                 locucao.call('c', 'g', true);
                 break;
 

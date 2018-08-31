@@ -26,7 +26,7 @@ function criarState3() {
     game.physics.arcade.enable(chao);
     chao.enableBody = true;
     chao.body.immovable = true;
-    chao.body.setSize(800,30,0,95);
+    chao.body.setSize(1000,30,0,95);
     
 
     //criacao rnaM
@@ -43,12 +43,18 @@ function criarState3() {
     dnaPolimerase.gen(20, 410);    
     gameUI();
 
+    //pares replicacao
+    paresReplicacao.presets();
 
     //cria o gerador
     gerador.gen();
 
     //amnoacidos
     amnoacidos.presets();
+
+    //camera
+    game.world.setBounds(0, 0, 1000, 600);
+    game.camera.follow(dnaPolimerase.element);
 }
 
 function atualizarState3() {
