@@ -17,7 +17,7 @@ var dnaPolimerase = {
 
         this.element.bulletsGroup = game.add.group();
         this.element.bulletsGroup.enableBody = true;
-        this.element.bulletsGroup.createMultiple(10, 'mutante1Bullet');
+        this.element.bulletsGroup.createMultiple(10, 'anticorpo');
         this.element.bulletsGroup.setAll('checkWorldBounds', true);
         this.element.bulletsGroup.setAll('outOfBoundsKill', true);
         game.physics.enable(this.element.bulletsGroup, Phaser.Physics.ARCADE);
@@ -44,7 +44,9 @@ var dnaPolimerase = {
                 });
                 nextFire = game.time.now + fireRate;
                 this.element.bullet = this.element.bulletsGroup.getFirstDead();
-                this.element.bullet.reset(this.element.x + 20, this.element.y - 20);
+                this.element.bullet.reset(this.element.x + 20, this.element.y - 10);
+                this.element.bullet.anchor.setTo(0.5 , 0.5);
+                this.element.bullet.rotation = Math.atan2(game.input.mousePointer.y - this.element.bullet.y, game.input.mousePointer.x - this.element.bullet.x);
                 game.physics.arcade.moveToPointer(this.element.bullet, 400);
             }
         }

@@ -6,12 +6,14 @@ var gameState2 = {
 
 var rna, dna,chao;
 function criarState2() {
-    game.world.setBounds(0, 0, 800, 600);
+
     createModals();
     locucao.gen();
     sounds.gen();
-    
+
+    game.world.setBounds(0, 0, 800, 600);
     levelNumber = 2;
+    
     game.physics.startSystem(Phaser.Physics.ARCADE);
     cursors = game.input.keyboard.createCursorKeys();
     upButton = game.input.keyboard.addKey(Phaser.Keyboard.W);

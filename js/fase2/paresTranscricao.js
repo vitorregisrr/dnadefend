@@ -254,7 +254,7 @@ paresTranscricao.escutarCorrecao = function () {
                     } else {
 
                         setTimeout(function () {
-                            locucao.call('reparado');
+                            locucao.call('certo');
                         }, 1500);
                     }
 

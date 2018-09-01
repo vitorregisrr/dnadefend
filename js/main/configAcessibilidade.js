@@ -1,5 +1,5 @@
 config = {
-    locucao: true,
+    locucao: false,
     libras: false,
     sounds: true,
     musica: true

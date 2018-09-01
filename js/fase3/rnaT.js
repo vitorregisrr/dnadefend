@@ -21,6 +21,7 @@ var rnaT = {
         ribossomo.generated = false;
         this.escutando = false;
         this.prosseguido = false;
+        score = 0;
         rnaTxo = 8,
         jogada = 0;
         contTrinca = 0;
@@ -97,6 +98,11 @@ var rnaT = {
         if (this.checkButton) {
             this.checkButton.kill();
         }
+
+        //exibe o conector
+        game.add.tween(rnaM.conectores.getAt(jogada)).to({
+            alpha: 1
+        }, 2000, Phaser.Easing.Linear.None, true, 0);
 
         // ***** OS FORS ABAIXO É UMA GAMBIARRA MONSTRUOSA E NÃO PODE SER VISTO POR NINGUÉM *******//
         var fix = [
@@ -240,7 +246,7 @@ var rnaT = {
                                 }, 500);
                             } else if (l.frame == 1) {
                                 setTimeout(function () {
-                                    locucao.call('reparado');
+                                    locucao.call('certo');
                                 }, 500);
                             }
 

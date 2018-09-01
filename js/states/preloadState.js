@@ -6,12 +6,13 @@ function precarregarPreload() {
     game.scale.pageAlignHorizontally = true;
     game.scale.pageAlignVertically = true;
 
-    /*var logo = game.add.sprite(game.world.centerX , game.world.centerY - 120 , 'logo');
+    game.add.sprite(0,0,'background1');
+
+    var logo = game.add.sprite(game.world.centerX , game.world.centerY - 120 , 'logo');
     logo.enableBody = true;
     logo.anchor.x = 0.5;
-    logo.anchor.y = 0.5;*/
-
-    game.add.sprite(0,0,'background1');
+    logo.anchor.y = 0.5;
+    logo.scale.setTo(0.8, 0.8);
 
     var preloadBarBg = game.add.sprite(game.world.centerX, game.world.centerY +60, 'preloadBarBg');
     preloadBarBg.enableBody = true;
@@ -65,6 +66,11 @@ function precarregarPreload() {
     game.load.spritesheet("switch", "assets/ui/switch.png", 75, 34, 2);
 
     
+    //rnaM fase 3
+    game.load.image('rnaM1','assets/rnaM/rnaM1.png');
+    game.load.image('rnaM2','assets/rnaM/rnaM2.png');
+    game.load.image('rnaM3','assets/rnaM/rnaM3.png');
+
     
     //pares transcricao
     game.load.spritesheet('parT-g', 'assets/paresTranscricao/g.png', 50, 48, 3);
@@ -131,6 +137,7 @@ function precarregarPreload() {
 
     //bullets
     game.load.spritesheet('mutante1Bullet', 'assets/bullets/mutante1Bullet.png',60, 45, 8);
+    game.load.image('anticorpo', 'assets/bullets/anticorpo.png');
 
     //audio
     game.load.audio('a','assets/audios/acessibilidade/a.ogg');
@@ -139,6 +146,7 @@ function precarregarPreload() {
     game.load.audio('g','assets/audios/acessibilidade/g.ogg');
     game.load.audio('c','assets/audios/acessibilidade/c.ogg');
     game.load.audio('par','assets/audios/acessibilidade/par.ogg');
+    game.load.audio('certo','assets/audios/acessibilidade/certo.ogg');
 
     game.load.audio('attack','assets/audios/attack.ogg');
     game.load.audio('hurt','assets/audios/hurt.ogg');
@@ -154,7 +162,7 @@ function precarregarPreload() {
     game.load.spritesheet('explosion','assets/efeitos/explosion.png', 160, 160, 9);
 
     //gerador de amonoacidos
-    game.load.spritesheet('gerador','assets/amnoacidos/gerador.png', 159, 122, 5);
+    game.load.spritesheet('gerador','assets/amnoacidos/gerador.png', 170, 78, 5);
     game.load.image('gerador-leftarrow', 'assets/amnoacidos/leftarrow.png');
     game.load.image('gerador-rightarrow', 'assets/amnoacidos/rightarrow.png');
     game.load.image('painelAmnoacido1', 'assets/amnoacidos/painelAmnoacido1.png');

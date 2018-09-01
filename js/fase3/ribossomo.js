@@ -6,6 +6,7 @@ var ribossomo = {
         this.element.body.enable = true;
         this.element.alpha = 1;
         jogada = 0;
+        this.prosseguido = false;
     },
 
     move: function () {
@@ -40,36 +41,46 @@ var ribossomo = {
             game.add.tween(rnaM.conectores).to({
                 alpha: 0
             }, 2000, Phaser.Easing.Linear.None, true, 0);
+
+            game.add.tween(amnoacidos.conectores).to({
+                alpha: 0
+            }, 2000, Phaser.Easing.Linear.None, true, 0);
+
             game.add.tween(rnaT.group).to({
                 alpha: 0
             }, 2000, Phaser.Easing.Linear.None, true, 0);
+
             game.add.tween(rnaM.fita).to({
                 alpha: 0
             }, 2000, Phaser.Easing.Linear.None, true, 0);
-            game.add.tween(gerador.body).to({
-                alpha: 0
-            }, 2000, Phaser.Easing.Linear.None, true, 0);
+
             game.add.tween(gerador.gerarBtn).to({
                 alpha: 0
             }, 2000, Phaser.Easing.Linear.None, true, 0);
+
             game.add.tween(amnoacidos.encaixados).to({
                 alpha: 0
             }, 2000, Phaser.Easing.Linear.None, true, 0);
-            game.add.tween(rnaT.escutarBtn).to({
-                alpha: 0
-            }, 2000, Phaser.Easing.Linear.None, true, 0);
-            slider.hideSlider(0);
+            
+            if(rnaT.escutarBtn){
+                game.add.tween(rnaT.escutarBtn).to({
+                    alpha: 0
+                }, 2000, Phaser.Easing.Linear.None, true, 0);
+            }
+            
+            
             setTimeout(function () {
                 rnaM.conectores.destroy();
                 rnaT.group.destroy();
-                rnaT.escutarBtn.destroy();
+                
+                if(rnaT.escutarBtn){
+                    rnaT.escutarBtn.destroy();
+                }
                 rnaM.fita.destroy();
-                gerador.body.destroy();
                 gerador.gerarBtn.destroy();
                 amnoacidos.encaixados.destroy();
                 mutacoes.gen(530, 155, 40, 1);
             }, 2000);
-
         }
-    },
+    }
 }

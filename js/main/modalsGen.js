@@ -217,7 +217,7 @@ function createModals() {
                 type: "image",
                 content: "pausedModal",
                 offsetY: -20,
-                contentScale: 1
+                contentScale: 1,
             },
             {
                 type: "text",

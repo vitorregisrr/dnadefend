@@ -9,11 +9,22 @@ var amnoacidos = {
         this.gerados = game.add.group();
         this.encaixados = game.add.group();
         this.gerados.add(this.encaixados);
+
+        //gera os conectores
+        this.conectores = game.add.group();
+        var pConectores = [65, 162, 256, 354, 448, 544, 639];
+        for(x = 0; x <= 6; x++){
+            this.conectores.create(pConectores[x], 250, 'parT-conector');
+            this.conectores.getAt(x).height = 140;
+            this.conectores.getAt(x).width = 8;
+            this.conectores.getAt(x).alpha = 0;
+        }
+
     },
 
     gen: function (id) {
-        var x = 850;
-        var y = 485;
+        var x = 823;
+        var y = 498;
         
         if(this.last && !this.last.encaixado){
             this.last.kill();
@@ -24,7 +35,7 @@ var amnoacidos = {
         this.last.anchor.setTo(0.5 , 0.5);
         this.gerados.add(this.last);
         this.last.id = id;
-
+        this.last.bringToTop();
         gerador.body.bringToTop();
         dnaPolimerase.element.bringToTop();
         gerador.body.animations.play('open');
@@ -47,6 +58,13 @@ var amnoacidos = {
         e = this.grabing;
 
         if (Math.abs( (pointer.x + game.camera.x) - dnaPolimerase.element.x) < 100 && Math.abs(pointer.y - dnaPolimerase.element.y) < 100) {
+            
+            score ++;
+            game.add.tween(stateProgressBar.scale).to({
+                x: score / 14,
+                y: 1
+            }, 600, Phaser.Easing.Linear.None, true);            
+
             e.x = pointer.x + game.camera.x;
             e.y = pointer.y + game.camera.y;
             game.add.existing(e);
@@ -55,17 +73,16 @@ var amnoacidos = {
 
             var p = posicoesEncaixe[jogada -1];
             if(e.x - p < 50 && e.y - 400 < 50 && !ribossomo.moving){ //se estiver na area do rnaT encaixavel
-                console.log(e.id);
                 this.grabing = false;
                 this.encaixados.add(e);
                 this.last.encaixado = true;
                 e.x = p;
                 e.y = 400;
                 ribossomo.move();
-                game.add.tween(rnaM.conectores.getAt(jogada -1)).to({
+                game.add.tween(this.conectores.getAt(jogada -1)).to({
                     alpha: 1
                 }, 700, Phaser.Easing.Linear.None, true, 0);
-
+            
                 jogada++;
             }
         }
@@ -77,13 +94,13 @@ var amnoacidos = {
 
             if(this.encaixados.getAt(x).id == rnaM.aminoacidos[x]){
                 this.encaixados.getAt(x).frame = 1;
-                rnaM.conectores.getAt(x).frame = 1;
+                this.conectores.getAt(x).frame = 1;
                 mutacoesReparadas++;
                 textMutacoesReparadas.setText(mutacoesReparadas);
                 
             }else{
                 this.encaixados.getAt(x).frame = 2;
-                rnaM.conectores.getAt(x).frame = 2;
+                this.conectores.getAt(x).frame = 2;
                 mutacoesCriadas++;
                 textMutacoesCriadas.setText(mutacoesCriadas);
             }
