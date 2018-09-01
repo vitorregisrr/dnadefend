@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- metas-->
+    <meta charset="utf-8" />
+    <title>Defenda o DNA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- //metas-->
+    <link rel="stylesheet" href="assets/komikax.css">
+    <style>
+    body{
+        padding:0;
+        margin:0;
+        background-color:#16000a;
+    }
+    #game{
+        margin:0;
+        padding:0;
+    }
+    </style>
+    
+</head>
+<body>
+    <div id="game" style="font-family:'Luckiest Guy',cursive;visibility:hidden;opacity:0;position:fixed;" >
+    </div>
+</body>
+</html>
+
+   <!-- phaser lib-->
+   <script src='js/phaser.min.js'></script>
+   <script src="js/libs/modalLib.js"></script>
+   <script src="js/libs/tooltipLib.js"></script>
+   <script src="js/libs/phase-slide.js"></script>
+   <!-- phaser-->
+
+   
+   <!-- game logic--> 
+   <script src="js/game/main/configAcessibilidade.js"></script>
+   <script src="js/game/main/locucao.js"></script>
+   
+   <script src="js/game/states/bootState.js"></script>
+   <script src="js/game/states/preloadState.js"></script>
+   <script src="js/game/states/startState.js"></script>
+   <script src="js/game/states/levelState.js"></script>
+
+   <script src="js/game/fase1/gameStage1.js"></script>
+   <script src="js/game/fase1/paresReplicacao.js"></script>
+
+   <script src="js/game/fase2/gameStage2.js"></script>
+   <script src="js/game/fase2/paresTranscricao.js"></script>
+
+   <script src="js/game/fase3/gameStage3.js"></script>
+   <script src="js/game/fase3/rnaM.js"></script>
+   <script src="js/game/fase3/rnaT.js"></script>
+   <script src="js/game/fase3/gerador.js"></script>
+   <script src="js/game/fase3/amnoacidos.js"></script>
+   <script src="js/game/fase3/ribossomo.js"></script>
+
+   <script src="js/game/personagens/dnaPolimerase.js"></script>
+   <script src="js/game/personagens/mutacaoGen.js"></script>
+
+
+   <script src="js/game/main/gameUI.js"></script>
+   <script src="js/game/main/plataformasGen.js"></script>
+   <script src="js/game/main/modalsGen.js"></script>
+   <script src="js/game/main/gameLoadStates.js"></script>
+   <script src="js/game/main/sounds.js"></script>
+   
+   <!-- //game logic-->  
