@@ -44,12 +44,12 @@ var rnaM = {
                     ['c', 'u', 'u'],
                     ['u', 'g', 'a'],
                     ['g', 'g', 'g'],
-                    ['a', 'c', 'c'],
-                    ['g', 'a', 'g'],
+                    ['a', 'a', 'c'],
+                    ['g', 'g', 'g'],
                     ['c', 'g', 'u'],
                     ['u', 'g', 'a']
                 ];
-                this.rnaTC = ['u', 'a', 'c','c', 'u', 'u','u', 'g', 'a','g', 'g', 'g','a', 'c', 'c','g', 'a', 'g','c', 'g', 'u','u', 'g', 'a'];
+                this.rnaTC = ['u', 'a', 'c','c', 'u', 'u','u', 'g', 'a','g', 'g', 'g','a', 'a', 'c','g', 'g', 'g','c', 'g', 'u','u', 'g', 'a'];
                 this.aminoacidos = ['metionina', 'acido-glutaminico', 'treomina', 'prolina', 'triptofano', 'leucina', 'alanina', 'treomina'];
                 this.aminoacidos = [0, 3, 2, 4, 1, 6, 5, 2];
                 break;
@@ -63,7 +63,7 @@ var rnaM = {
                     ['g', 'a', 'g'],
                     ['a', 'c', 'c'],
                     ['g', 'a', 'g'],
-                    ['u', 'a', 'g'],
+                    ['u', 'g', 'a'],
                     ['g', 'g', 'g']
                 ];
                 this.rnaTC = ['u', 'a', 'c','c', 'g', 'u','c', 'u', 'u','g', 'a', 'g','a', 'c', 'c','g', 'a', 'g','u', 'a', 'g','g', 'g', 'g']

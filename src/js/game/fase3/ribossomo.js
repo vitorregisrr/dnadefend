@@ -1,7 +1,7 @@
 var ribossomo = {
     gen: function () {
         ribossomo.generated = true;
-        this.element = game.add.sprite(10, 200, 'ribossomo');
+        this.element = game.add.sprite(10, 215, 'ribossomo');
         game.physics.arcade.enable(this.element);
         this.element.body.enable = true;
         this.element.alpha = 1;

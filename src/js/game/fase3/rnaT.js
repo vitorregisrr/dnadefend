@@ -23,7 +23,7 @@ var rnaT = {
         this.prosseguido = false;
         score = 0;
         rnaTxo = 8,
-        jogada = 0;
+            jogada = 0;
         contTrinca = 0;
         i = 0;
         mutacoesCriadas = 0;
@@ -89,11 +89,17 @@ var rnaT = {
             //aumenta o tamanho
             this.group.scale.set(1.2, 1.2);
         } else {
-           this.prosseguir();
+            this.prosseguir();
         }
     },
 
     check: function () {
+
+        score++;
+        game.add.tween(stateProgressBar.scale).to({
+            x: score / 14,
+            y: 1
+        }, 600, Phaser.Easing.Linear.None, true);
 
         if (this.checkButton) {
             this.checkButton.kill();
