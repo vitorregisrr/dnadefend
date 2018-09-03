@@ -38,6 +38,7 @@ var amnoacidos = {
         gerador.body.bringToTop();
         dnaPolimerase.element.bringToTop();
         gerador.body.animations.play('open');
+        sounds.play('door');
 
     },
 
@@ -49,13 +50,13 @@ var amnoacidos = {
             dnaPolimerase.element.frame = 3;
             dnaPolimerase.grabing = true;
             this.grabing = e;
+            sounds.play('catch');
         }
     },
 
     drop: function () {
         var pointer = game.input.activePointer;
         e = this.grabing;
-
         if (Math.abs((pointer.x + game.camera.x) - dnaPolimerase.element.x) < 100 && Math.abs(pointer.y - dnaPolimerase.element.y) < 100) {
 
             e.x = pointer.x + game.camera.x;
@@ -63,6 +64,7 @@ var amnoacidos = {
             game.add.existing(e);
             dnaPolimerase.element.frame = 1;
             dnaPolimerase.grabing = false;
+            sounds.play('catch');
 
             var p = posicoesEncaixe[jogada - 1];
             if (e.x - p < 50 && e.y - 400 < 50 && !ribossomo.moving) { //se estiver na area do rnaT encaixavel

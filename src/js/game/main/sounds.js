@@ -3,10 +3,13 @@ var sounds = {
         this.hurt = game.add.audio('hurt');
         this.attack = game.add.audio('attack');
         this.right = game.add.audio('right');
-
         this.mutScream = game.add.audio('mutScream');
         this.boxChange = game.add.audio('boxChange');
         this.boxChange.volume = 0.2;
+        this.door = game.add.audio('door');
+        this.catch = game.add.audio('catch');
+        this.wrong = game.add.audio('wrong');
+        this.wrong.volume = 0.2;
 
     },
 
@@ -41,6 +44,10 @@ var sounds = {
                     this.right.play();
                     break;
 
+                case 'wrong':
+                    this.wrong.play();
+                    break;
+
                 case 'mutScream':
                     this.mutScream.play();
                     break;
@@ -53,6 +60,13 @@ var sounds = {
 
                     break;
 
+                case 'door':
+                    this.door.play();
+                    break;
+
+                case 'catch':
+                    this.catch.play();
+                    break;
             }
         } else {
             return false;

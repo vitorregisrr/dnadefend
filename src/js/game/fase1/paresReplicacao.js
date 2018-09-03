@@ -179,6 +179,7 @@ var paresReplicacao = {
 
                     } else if (!e.mutacao) { // se não for mutacao
                         locucao.call('errado');
+                        sounds.play('wrong');
                         e.frame = 2;
                         dnaPolimerase.animating = true;
                         dnaPolimerase.element.animations.play('angry', 10);

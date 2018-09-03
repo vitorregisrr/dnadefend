@@ -157,6 +157,9 @@ function precarregarPreload() {
     game.load.audio('errado','assets/audios/acessibilidade/errado.ogg');
     game.load.audio('reparado','assets/audios/acessibilidade/reparado.ogg');
     game.load.audio('mutacao-gerada','assets/audios/acessibilidade/mutacao-gerada.ogg');
+    game.load.audio('door','assets/audios/door.ogg');
+    game.load.audio('catch','assets/audios/catch.ogg');
+    game.load.audio('wrong','assets/audios/wrong.ogg');
 
     //efeitos
     game.load.spritesheet('explosion','assets/efeitos/explosion.png', 160, 160, 9);
