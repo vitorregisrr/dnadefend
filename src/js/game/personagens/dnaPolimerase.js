@@ -27,7 +27,7 @@ var dnaPolimerase = {
         this.element.animations.add('right', [9]);
         this.element.animations.add('changing', [22, 23]);
         this.element.animations.add('stoped', [0]);
-        this.element.animations.add('hited', [34]);
+        this.element.animations.add('hited', [27]);
         this.element.animations.add('angry', [4]);
         this.element.animations.add('happy', [35]);
         this.element.animations.add('attack', [24]);
