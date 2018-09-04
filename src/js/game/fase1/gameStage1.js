@@ -50,7 +50,8 @@ function criarState1() {
     }, this);
 
     //cria a dna polimerase
-    dnaPolimerase.gen(20, 200);    
+    dnaPolimerase.gen(20, 200);
+    dnaPolimerase.element.loadTexture('dnaPolimerase'); 
     gameUI();
     
 }

@@ -40,7 +40,8 @@ function criarState3() {
     mutacoes.presets();
 
     //cria a dna polimerase
-    dnaPolimerase.gen(20, 410);    
+    dnaPolimerase.gen(20, 410);   
+    dnaPolimerase.element.loadTexture('personagemDefault'); 
     gameUI();
 
     //pares replicacao

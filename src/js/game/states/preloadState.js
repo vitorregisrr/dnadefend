@@ -121,6 +121,8 @@ function precarregarPreload() {
 
     //caracteres   
     game.load.spritesheet('dnaPolimerase', 'assets/caracteres/dnaPolimerase.png',85,85,46);
+    game.load.spritesheet('rnaPolimerase', 'assets/caracteres/rnaPolimerase.png',85,85,46);
+    game.load.spritesheet('personagemDefault', 'assets/caracteres/personagemDefault.png',85,85,46);
     game.load.spritesheet('mutante1', 'assets/caracteres/mutante1.png',136,145,5);
 
     //backgrounds

@@ -48,6 +48,7 @@ function criarState2() {
 
     //cria a dna polimerase
     dnaPolimerase.gen(20, 450);    
+    dnaPolimerase.element.loadTexture('rnaPolimerase');
     gameUI();
 
     //paresTranscricao.check();
