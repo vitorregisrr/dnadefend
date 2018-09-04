@@ -22,6 +22,12 @@ var gerador = {
             mode: "horizontal",
             customHandleNext: "gerador-rightarrow",
             customHandlePrev: "gerador-leftarrow",
+            onPrePrevCallback: function () {
+                gerador.locucao('prev');
+            },
+            onAfterNextCallback: function () {
+                gerador.locucao('next');
+            },
             sliderBGAlpha: 0.8,
             width: 218,
             height: 50,
@@ -29,13 +35,70 @@ var gerador = {
             y: 380,
             objects: [amnoacido1, amnoacido2, amnoacido3, amnoacido4, amnoacido5, amnoacido6, amnoacido7, amnoacido8, amnoacido9]
         });
+    },
 
+    locucao: function (side) {
 
+        var sideControl;
+        switch (side) {
+            case 'prev':
+                sideControl = -1;
+                break;
+
+            case 'next':
+                sideControl = 1;
+        }
+
+        var index = slider.getCurrentIndex() + sideControl;
+
+        if (config.locucao) {
+            gerador.locutando = true;
+            game.time.events.loop(800, function () {
+                gerador.locutando = false;
+            });
+            switch (index) {
+                case 0:
+                    locucao.call('metionina');
+                    break;
+
+                case 1:
+                    locucao.call('triptofano');
+                    break;
+
+                case 2:
+                    locucao.call('treomina');
+                    break;
+
+                case 3:
+                    locucao.call('acidoglutaminico');
+                    break;
+
+                case 4:
+                    locucao.call('prolina');
+                    break;
+
+                case 5:
+                    locucao.call('alanina');
+                    break;
+
+                case 6:
+                    locucao.call('leucina');
+                    break;
+
+                case 7:
+                    locucao.call('serina');
+                    break;
+
+                case 8:
+                    locucao.call('histidina');
+                    break;
+            }
+        }
     }
 }
 
 function gerarAmnoacido() {
-    if(ribossomo.generated){
+    if (ribossomo.generated) {
         var index = slider.getCurrentIndex();
         amnoacidos.gen(index);
     }

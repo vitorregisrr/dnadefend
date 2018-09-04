@@ -163,6 +163,17 @@ function precarregarPreload() {
     game.load.audio('catch','assets/audios/catch.ogg');
     game.load.audio('wrong','assets/audios/wrong.ogg');
 
+    
+    game.load.audio('metionina','assets/audios/acessibilidade/metionina.ogg');
+    game.load.audio('triptofano','assets/audios/acessibilidade/triptofano.ogg');
+    game.load.audio('treomina','assets/audios/acessibilidade/treomina.ogg');
+    game.load.audio('acidoglutaminico','assets/audios/acessibilidade/acidoglutaminico.ogg');
+    game.load.audio('prolina','assets/audios/acessibilidade/prolina.ogg');
+    game.load.audio('alanina','assets/audios/acessibilidade/alanina.ogg');
+    game.load.audio('leucina','assets/audios/acessibilidade/leucina.ogg');
+    game.load.audio('serina','assets/audios/acessibilidade/serina.ogg');
+    game.load.audio('histidina','assets/audios/acessibilidade/histidina.ogg');
+    
     //efeitos
     game.load.spritesheet('explosion','assets/efeitos/explosion.png', 160, 160, 9);
 
