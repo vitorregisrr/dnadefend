@@ -3,6 +3,57 @@ var reg = {};
 function createModals() {
 
     reg.modal.createModal({
+        type: "gameOverModal",
+        includeBackground: false,
+        modalCloseOnInput: false,
+        itemsArr: [{
+                type: "image",
+                content: "levelFailed",
+                offsetY: -20,
+                contentScale: 1
+            },
+            {
+                type: "text",
+                content: "0",
+                fontSize: 25,
+                fontFamily: "Komika",
+                color: "0xd9d9d9",
+                offsetY: -56,
+                offsetX: 0,
+            },
+            {
+                type: "text",
+                content: "0",
+                fontSize: 25,
+                fontFamily: "Komika",
+                color: "0xd9d9d9",
+                offsetY: +30,
+                offsetX: 0,
+            },
+            {
+                type: "image",
+                content: "btnRestart",
+                offsetY: 100,
+                offsetX: 40,
+                callback: function () {
+                    game.paused = false;
+                    game.state.start("gameState"+(levelNumber));
+                }
+            },
+            {
+                type: "image",
+                content: "btnLeft",
+                offsetY: 95,
+                offsetX: -30,
+                callback: function () {
+                    game.paused = false;
+                    game.state.start("levelState");
+                }
+            },
+        ]
+    });
+    
+    reg.modal.createModal({
         type: "configModal",
         includeBackground: false,
         modalCloseOnInput: false,
