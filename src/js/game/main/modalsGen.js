@@ -253,7 +253,11 @@ function createModals() {
                 offsetX: 80,
                 callback: function () {
                     game.paused = false;
-                    game.state.start("gameState" + (levelNumber + 1));
+                    if(levelNumber != 3){
+                        game.state.start("gameState"+(levelNumber + 1));
+                    }else{
+                        game.state.start("levelState");
+                    }
                 }
             }
         ]
