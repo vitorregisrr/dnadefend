@@ -304,6 +304,15 @@ paresTranscricao.prosseguir = function () {
         game.add.tween(paresTranscricao.checkButton).to({
             alpha: 0
         }, 2000, Phaser.Easing.Linear.None, true, 0);
+
+        game.add.tween(textoDna).to({
+            alpha: 0
+        }, 2000, Phaser.Easing.Linear.None, true, 0);
+
+        game.add.tween(textoRna).to({
+            alpha: 0
+        }, 2000, Phaser.Easing.Linear.None, true, 0);
+        
         game.time.events.add(Phaser.Timer.SECOND * 3, function (x) {
             paresTranscricao.checkButton.destroy();
             mutacoes.gen(50, 155, 40, 1);

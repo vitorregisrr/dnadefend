@@ -171,16 +171,11 @@ function createModals() {
                 content: "tutorial1",
                 offsetY: -20,
                 contentScale: 1,
-            }, {
-                type: "text",
-                content: "libras1",
-                offsetY: -20,
-                contentScale: 0.5,
             },
             {
                 type: "image",
                 content: "btnOk",
-                offsetY: 200,
+                offsetY: 220,
                 offsetX: 0,
                 callback: function () {
                     reg.modal.hideModal("infoModal");

@@ -54,12 +54,12 @@ function criarLevelState() {
 	var libras1= game.add.button(125, 135, 'librasBtn',mostraLibras, 1);
 	libras1.id = 1;
 
-	var info2= game.add.button(317, 135, 'iBtn', mostraInfo, 2);
+	var info2= game.add.button(317, 135, 'iBtn', mostraInfo);
 	info2.id = 2;
 	var libras2= game.add.button(365, 135, 'librasBtn', mostraLibras, 2);
 	libras2.id = 2;
 
-	var info3 = game.add.button(572, 135, 'iBtn', mostraInfo, 3);
+	var info3 = game.add.button(572, 135, 'iBtn', mostraInfo);
 	info3.id = 3;
 	var libras3 = game.add.button(620, 135, 'librasBtn',mostraLibras, 3);
 	libras3.id = 3;
@@ -130,6 +130,7 @@ function thumbClicked(button) {
 }
 
 function mostraInfo(e){
+	reg.modal.updateModalValue('tutorial'+e.id, 'infoModal', 0 );
 	showInfoModal();
 }
 

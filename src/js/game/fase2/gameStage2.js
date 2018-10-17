@@ -49,6 +49,24 @@ function criarState2() {
     //cria a dna polimerase
     dnaPolimerase.gen(20, 450);    
     dnaPolimerase.element.loadTexture('rnaPolimerase');
+
+    //cria os textos
+    textoDna = game.add.text(35, 130, 'DNA', {
+        font: "30px Komika",
+        fill: "#ff99ff",
+        align: "center",
+        stroke: '#000000',
+        strokeThickness: 4,
+    });
+
+    textoRna = game.add.text(35, 330, 'rnaM', {
+        font: "30px Komika",
+        fill: "#ff99ff",
+        align: "center",
+        stroke: '#000000',
+        strokeThickness: 4,
+    });
+
     gameUI();
 
     //paresTranscricao.check();

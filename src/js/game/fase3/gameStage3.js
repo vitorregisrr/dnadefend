@@ -53,6 +53,40 @@ function criarState3() {
     //amnoacidos
     amnoacidos.presets();
 
+    textoRnam = game.add.text(30, 102, 'rnaM', {
+        font: "25px Komika",
+        fill: "#ff99ff",
+        align: "center",
+        stroke: '#000000',
+        strokeThickness: 4,
+    });
+    
+    textoCodon = game.add.text(694, 128, 'Códon de Parada', {
+        font: "10px Komika",
+        fill: "#ff99ff",
+        align: "center",
+        stroke: '#000000',
+        strokeThickness: 2,
+    });
+
+    textoRnat = game.add.text(30, 195, 'rnaT', {
+        font: "20px Komika",
+        fill: "#ff99ff",
+        align: "center",
+        stroke: '#000000',
+        strokeThickness: 4,
+    });
+
+    textoAmnoacidos = game.add.text(35, 350, 'Amnoacidos', {
+        font: "20px Komika",
+        fill: "#ff99ff",
+        align: "center",
+        stroke: '#000000',
+        strokeThickness: 4,
+    });
+    textoAmnoacidos.alpha = 0;
+
+
     //camera
     game.world.setBounds(0, 0, 1000, 600);
     game.camera.follow(dnaPolimerase.element);

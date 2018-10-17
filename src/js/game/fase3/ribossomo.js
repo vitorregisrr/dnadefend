@@ -7,6 +7,10 @@ var ribossomo = {
         this.element.alpha = 1;
         jogada = 0;
         this.prosseguido = false;
+        game.add.tween(textoAmnoacidos).to({
+            alpha: 1
+        }, 1000, Phaser.Easing.Linear.None, true, 0);
+        textoAmnoacidos.bringToTop();
     },
 
     move: function () {
