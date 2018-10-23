@@ -65,6 +65,22 @@ var ribossomo = {
             game.add.tween(amnoacidos.encaixados).to({
                 alpha: 0
             }, 2000, Phaser.Easing.Linear.None, true, 0);
+
+            game.add.tween(textoAmnoacidos).to({
+                alpha: 0
+            }, 2000, Phaser.Easing.Linear.None, true, 0);
+
+            game.add.tween(textoRnat).to({
+                alpha: 0
+            }, 2000, Phaser.Easing.Linear.None, true, 0);
+
+            game.add.tween(textoCodon).to({
+                alpha: 0
+            }, 2000, Phaser.Easing.Linear.None, true, 0);
+
+            game.add.tween(textoRnam).to({
+                alpha: 0
+            }, 2000, Phaser.Easing.Linear.None, true, 0);
             
             if(rnaT.escutarBtn){
                 game.add.tween(rnaT.escutarBtn).to({
