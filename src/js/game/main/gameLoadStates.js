@@ -32,7 +32,7 @@ function levelSuccess() {
     game.paused = true;
     var starsSpritesheetIndex;
     //estrelas
-    if (starsArray[levelNumber - 1] < 3) {
+    if (starsArray[levelNumber - 1] < 3 || starsArray[levelNumber - 1] == 4) {
         if (mutacoesCriadas == 0) {
             starsArray[levelNumber - 1] = 3;
             starsSpritesheetIndex = 2;
@@ -43,8 +43,7 @@ function levelSuccess() {
 
         } else {
             starsArray[levelNumber - 1] = 1;
-            starsSpritesheetIndex = 0;
-            
+            starsSpritesheetIndex = 0;       
         }
         localStorage.setItem('starsArray',JSON.stringify(starsArray));
     }

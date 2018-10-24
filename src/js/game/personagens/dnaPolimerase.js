@@ -113,9 +113,9 @@ var dnaPolimerase = {
             }
         }
 
-        if ((cursors.up.isDown || upButton.isDown ) && dnaPolimerase.element.body.touching.down) {
+        if ((cursors.up.isDown || upButton.isDown ) && (dnaPolimerase.element.body.touching.down)) {
 
-            this.element.body.velocity.y = -320;
+            this.element.body.velocity.y = -360;
 
         } else if (cursors.down.isDown || downButton.isDown) {
 

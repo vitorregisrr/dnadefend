@@ -169,13 +169,13 @@ function createModals() {
         itemsArr: [{
                 type: "image",
                 content: "tutorial1",
-                offsetY: -20,
+                offsetY: 0,
                 contentScale: 1,
             },
             {
                 type: "image",
                 content: "btnOk",
-                offsetY: 220,
+                offsetY: 250,
                 offsetX: 0,
                 callback: function () {
                     reg.modal.hideModal("infoModal");

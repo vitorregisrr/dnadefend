@@ -27,10 +27,10 @@ function criarState1() {
     game.add.sprite(0,0,'background1');
 
     organelas.presets();
-    organelas.gen(20, 310, 1);
-    organelas.gen(230, 350, 2);
-    organelas.gen(430, 330, 3);
-    organelas.gen(640, 310, 4);
+    organelas.gen(20, 300, 1);
+    organelas.gen(230, 320, 2);
+    organelas.gen(430, 310, 3);
+    organelas.gen(640, 305, 4);
     
     //cria o dna 
     dna = game.add.sprite(0, 450, 'faixaDNA');
