@@ -161,6 +161,7 @@ function createModals() {
                 },
             ]
         });
+    }
 
         reg.modal.createModal({
             type: "infoModal",
@@ -257,8 +258,8 @@ function createModals() {
                     }
                 }
             ]
-        });
-    }
+        })
+
     reg.modal.createModal({
         type: "pausedModal",
         includeBackground: false,
