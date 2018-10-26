@@ -57,7 +57,7 @@ var amnoacidos = {
     drop: function () {
         var pointer = game.input.activePointer;
         e = this.grabing;
-        if (Math.abs((pointer.x + game.camera.x) - dnaPolimerase.element.x) < 100 && Math.abs(pointer.y - dnaPolimerase.element.y) < 100) {
+        if (Math.abs((pointer.x + game.camera.x) - dnaPolimerase.element.x) < 100 && Math.abs(pointer.y - dnaPolimerase.element.y) < 100 && !moveLeftBtn.isDown && !moveRightBtn.isDown && !moveUpBtn.isDown && !moveDownBtn.isDown) {
 
             e.x = pointer.x + game.camera.x;
             e.y = pointer.y + game.camera.y;
@@ -68,7 +68,6 @@ var amnoacidos = {
 
             var p = posicoesEncaixe[jogada - 1];
             if (e.x - p < 50 && e.y - 400 < 50 && !ribossomo.moving) { //se estiver na area do rnaT encaixavel
-
                 score++;
                 game.add.tween(stateProgressBar.scale).to({
                     x: score / 14,
@@ -84,7 +83,6 @@ var amnoacidos = {
                 game.add.tween(this.conectores.getAt(jogada - 1)).to({
                     alpha: 1
                 }, 700, Phaser.Easing.Linear.None, true, 0);
-
                 jogada++;
             }
         }

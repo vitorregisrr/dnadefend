@@ -1,5 +1,5 @@
-screenWidth = 1430;
-screenHeight = 700;
+screenWidth = 800;
+screenHeight = 600;
 var centerX = screenWidth / 2;
 var centerY = screenHeight / 2;
 
