@@ -95,31 +95,40 @@ var dnaPolimerase = {
 
 
         this.element.body.velocity.x = 0;
-        if (cursors.left.isDown || leftButton.isDown) {
+        if (cursors.left.isDown || leftButton.isDown || moveLeftBtn.isDown) {
             this.element.body.velocity.x = -250;
+            moveLeftBtn.frame = 1;
             if (!dnaPolimerase.animating && !dnaPolimerase.grabing) {
                 this.element.animations.play('left');
             }
 
-        } else if (cursors.right.isDown || rightButton.isDown) {
+        } else if (cursors.right.isDown || rightButton.isDown || moveRightBtn.isDown) {
             this.element.body.velocity.x = 250;
+            moveRightBtn.frame = 1;
             if (!dnaPolimerase.animating && !dnaPolimerase.grabing) {
                 this.element.animations.play('right');
             }
 
         } else {
+            moveRightBtn.frame = 0;
+            moveLeftBtn.frame = 0;
             if (!dnaPolimerase.animating && !dnaPolimerase.grabing) {
                 this.element.animations.play('stoped');
             }
         }
 
-        if ((cursors.up.isDown || upButton.isDown ) && (dnaPolimerase.element.body.touching.down)) {
-
+        if ((cursors.up.isDown || upButton.isDown || moveUpBtn.isDown) && (dnaPolimerase.element.body.touching.down)) {
+            moveUpBtn.frame = 1;
+            setTimeout(() => {
+                moveUpBtn.frame = 0;
+            }, 400);
             this.element.body.velocity.y = -360;
 
-        } else if (cursors.down.isDown || downButton.isDown) {
-
+        } else if (cursors.down.isDown || downButton.isDown || moveDownBtn.isDown) {
+            moveDownBtn.frame = 1;
             this.element.body.velocity.y = 450;
+        }else{
+            moveDownBtn.frame = 0;
         }
 
     }

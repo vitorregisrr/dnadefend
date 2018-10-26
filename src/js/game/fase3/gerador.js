@@ -16,7 +16,6 @@ var gerador = {
         var amnoacido8 = game.add.image(0, 0, 'painelAmnoacido8');
         var amnoacido9 = game.add.image(0, 0, 'painelAmnoacido9');
 
-
         slider.createSlider({
             customSliderBG: false,
             mode: "horizontal",
@@ -35,6 +34,8 @@ var gerador = {
             y: 380,
             objects: [amnoacido1, amnoacido2, amnoacido3, amnoacido4, amnoacido5, amnoacido6, amnoacido7, amnoacido8, amnoacido9]
         });
+
+        joystick.bringToTop();
     },
 
     locucao: function (side) {

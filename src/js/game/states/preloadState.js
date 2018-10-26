@@ -119,6 +119,13 @@ function precarregarPreload() {
     game.load.image('hpBarLONG', 'assets/HpBars/hpBarLONG.png');
     game.load.image('hpBarLONGbg', 'assets/HpBars/hpBarLONGbg.png');
 
+    //joystick
+    game.load.spritesheet('moveLeft', 'assets/ui/moveLeft.png', 65, 59);
+    game.load.spritesheet('btnAttack', 'assets/ui/btnAttack.png', 65, 59);
+    game.load.spritesheet('moveRight', 'assets/ui/moveRight.png', 65, 59);
+    game.load.spritesheet('moveUp', 'assets/ui/moveUp.png', 65, 59);
+    game.load.spritesheet('moveDown', 'assets/ui/moveDown.png', 65, 59);
+
     //caracteres   
     game.load.spritesheet('dnaPolimerase', 'assets/caracteres/dnaPolimerase.png',85,85,46);
     game.load.spritesheet('rnaPolimerase', 'assets/caracteres/rnaPolimerase.png',85,85,46);

@@ -39,7 +39,7 @@ var amnoacidos = {
         dnaPolimerase.element.bringToTop();
         gerador.body.animations.play('open');
         sounds.play('door');
-
+        joystick.bringToTop();
     },
 
     grab: function (e) {

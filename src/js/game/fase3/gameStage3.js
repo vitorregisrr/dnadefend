@@ -86,7 +86,7 @@ function criarState3() {
     });
     textoAmnoacidos.alpha = 0;
 
-
+    joystick.bringToTop();
     //camera
     game.world.setBounds(0, 0, 1000, 600);
     game.camera.follow(dnaPolimerase.element);

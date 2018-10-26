@@ -37,7 +37,7 @@ function createModals() {
                 offsetX: 40,
                 callback: function () {
                     game.paused = false;
-                    game.state.start("gameState"+(levelNumber));
+                    game.state.start("gameState" + (levelNumber));
                 }
             },
             {
@@ -52,7 +52,7 @@ function createModals() {
             },
         ]
     });
-    
+
     reg.modal.createModal({
         type: "configModal",
         includeBackground: false,
@@ -137,127 +137,128 @@ function createModals() {
 
         ]
     });
+    if (!mobileAndTabletcheck()) {
 
-    reg.modal.createModal({
-        type: "librasModal",
-        includeBackground: false,
-        modalCloseOnInput: false,
-        animation: 'fade',
-        itemsArr: [{
-                type: "video",
-                content: "libras1",
-                offsetY: -20,
-                contentScale: 0.5,
-            },
-            {
-                type: "image",
-                content: "btnOk",
-                offsetY: 200,
-                offsetX: 0,
-                callback: function () {
-                    reg.modal.hideModal("librasModal");
-                }
-            },
-        ]
-    });
+        reg.modal.createModal({
+            type: "librasModal",
+            includeBackground: false,
+            modalCloseOnInput: false,
+            animation: 'fade',
+            itemsArr: [{
+                    type: "video",
+                    content: "libras1",
+                    offsetY: -20,
+                    contentScale: 0.5,
+                },
+                {
+                    type: "image",
+                    content: "btnOk",
+                    offsetY: 200,
+                    offsetX: 0,
+                    callback: function () {
+                        reg.modal.hideModal("librasModal");
+                    }
+                },
+            ]
+        });
 
-    reg.modal.createModal({
-        type: "infoModal",
-        includeBackground: false,
-        modalCloseOnInput: false,
-        animation: 'fade',
-        itemsArr: [{
-                type: "image",
-                content: "tutorial1",
-                offsetY: 0,
-                contentScale: 1,
-            },
-            {
-                type: "image",
-                content: "btnOk",
-                offsetY: 250,
-                offsetX: 0,
-                callback: function () {
-                    reg.modal.hideModal("infoModal");
-                }
-            },
-        ]
-    });
+        reg.modal.createModal({
+            type: "infoModal",
+            includeBackground: false,
+            modalCloseOnInput: false,
+            animation: 'fade',
+            itemsArr: [{
+                    type: "image",
+                    content: "tutorial1",
+                    offsetY: 0,
+                    contentScale: 1,
+                },
+                {
+                    type: "image",
+                    content: "btnOk",
+                    offsetY: 250,
+                    offsetX: 0,
+                    callback: function () {
+                        reg.modal.hideModal("infoModal");
+                    }
+                },
+            ]
+        });
 
 
-    reg.modal.createModal({
-        type: "gameSucessModal",
-        includeBackground: false,
-        modalCloseOnInput: false,
-        animation: 'fade',
-        itemsArr: [{
-                type: "image",
-                content: "levelSuccess",
-                offsetY: -20,
-                contentScale: 1
-            },
-            {
-                type: "text",
-                content: "0",
-                fontSize: 25,
-                fontFamily: "Arial Black",
-                color: "0xd9d9d9",
-                offsetY: -45,
-                offsetX: -60,
-            },
-            {
-                type: "text",
-                content: "0",
-                fontSize: 25,
-                fontFamily: "Arial Black",
-                color: "0xd9d9d9",
-                offsetY: -45,
-                offsetX: 60,
-            },
-            {
-                type: "image",
-                content: "btnRestart",
-                offsetY: 100,
-                offsetX: 0,
-                callback: function () {
-                    game.paused = false;
-                    game.state.start("gameState" + (levelNumber));
-                }
-            },
-            {
-                type: "image",
-                content: "btnLeft",
-                offsetY: 85,
-                offsetX: -80,
-                callback: function () {
-                    game.paused = false;
-                    game.state.start("levelState");
-                }
-            },
-            {
-                type: "sprite",
-                content: "starsSpritesheet",
-                frame: 2,
-                offsetY: 15,
-                offsetX: 0,
-            },
-            {
-                type: "image",
-                content: "btnRight",
-                offsetY: 85,
-                offsetX: 80,
-                callback: function () {
-                    game.paused = false;
-                    if(levelNumber != 3){
-                        game.state.start("gameState"+(levelNumber + 1));
-                    }else{
+        reg.modal.createModal({
+            type: "gameSucessModal",
+            includeBackground: false,
+            modalCloseOnInput: false,
+            animation: 'fade',
+            itemsArr: [{
+                    type: "image",
+                    content: "levelSuccess",
+                    offsetY: -20,
+                    contentScale: 1
+                },
+                {
+                    type: "text",
+                    content: "0",
+                    fontSize: 25,
+                    fontFamily: "Arial Black",
+                    color: "0xd9d9d9",
+                    offsetY: -45,
+                    offsetX: -60,
+                },
+                {
+                    type: "text",
+                    content: "0",
+                    fontSize: 25,
+                    fontFamily: "Arial Black",
+                    color: "0xd9d9d9",
+                    offsetY: -45,
+                    offsetX: 60,
+                },
+                {
+                    type: "image",
+                    content: "btnRestart",
+                    offsetY: 100,
+                    offsetX: 0,
+                    callback: function () {
+                        game.paused = false;
+                        game.state.start("gameState" + (levelNumber));
+                    }
+                },
+                {
+                    type: "image",
+                    content: "btnLeft",
+                    offsetY: 85,
+                    offsetX: -80,
+                    callback: function () {
+                        game.paused = false;
                         game.state.start("levelState");
                     }
+                },
+                {
+                    type: "sprite",
+                    content: "starsSpritesheet",
+                    frame: 2,
+                    offsetY: 15,
+                    offsetX: 0,
+                },
+                {
+                    type: "image",
+                    content: "btnRight",
+                    offsetY: 85,
+                    offsetX: 80,
+                    callback: function () {
+                        game.paused = false;
+                        if (levelNumber != 3) {
+                            game.state.start("gameState" + (levelNumber + 1));
+                        } else {
+                            game.state.start("levelState");
+                        }
+                    }
                 }
-            }
-        ]
-    });
-
+            ]
+        });
+    }
     reg.modal.createModal({
         type: "pausedModal",
         includeBackground: false,

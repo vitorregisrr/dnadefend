@@ -22,4 +22,41 @@ function gameUI(){
     textMutacoesCriadas.fixedToCamera = true;
     textMutacoesReparadas.fixedToCamera = true;
 
+    joystick = game.add.sprite(game.world.centerX + 260, 520, '');
+    joystick.fixedToCamera = true;
+    joystick.visible = false;
+    joystick.scale.setTo(1,1);
+    joystick.alpha = 0.7;
+
+    moveLeftBtn = game.add.button(-70, 0, 'moveLeft');
+    moveLeftBtn.onInputDown.add(function() { moveLeftBtn.isDown = true;}, this);
+    moveLeftBtn.onInputUp.add(function() { moveLeftBtn.isDown = false;}, this);
+    joystick.addChild(moveLeftBtn);
+
+    moveRightBtn = game.add.button(70, 0, 'moveRight');
+    moveRightBtn.onInputDown.add(function() { moveRightBtn.isDown = true;}, this);
+    moveRightBtn.onInputUp.add(function() { moveRightBtn.isDown = false;}, this);
+    joystick.addChild(moveRightBtn);
+
+    moveUpBtn = game.add.button(0, -70, 'moveUp');
+    moveUpBtn.onInputDown.add(function() { moveUpBtn.isDown = true;}, this);
+    moveUpBtn.onInputUp.add(function() { moveUpBtn.isDown = false;}, this);
+    joystick.addChild(moveUpBtn);
+
+    moveDownBtn = game.add.button(0, 0, 'moveDown');
+    moveDownBtn.onInputDown.add(function() { moveDownBtn.isDown = true;}, this);
+    moveDownBtn.onInputUp.add(function() { moveDownBtn.isDown = false;}, this);
+    joystick.addChild(moveDownBtn);
+    
+    sounds.play('ambiente');
+    soundLoop = setInterval(function () {
+        sounds.play('ambiente');
+    }, 40000);
+
+    if (mobileAndTabletcheck()) {
+        joystick.visible = true;
+    }
+
+    joystick.bringToTop();
+
 }
