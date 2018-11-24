@@ -1,4 +1,6 @@
 var ribossomo = {
+
+    //funcao que gera o ribossomo
     gen: function () {
         ribossomo.generated = true;
         this.element = game.add.sprite(12, 128, 'ribossomo');
@@ -13,6 +15,7 @@ var ribossomo = {
         textoAmnoacidos.bringToTop();
     },
 
+    //funcao que é chamda sempre que o ribososmo precisa ir para a proxima posicao
     move: function () {
         game.physics.arcade.moveToXY(this.element, this.element.x + 96, this.element.y, 300, 3000);
         this.moving = true;
@@ -38,6 +41,9 @@ var ribossomo = {
 
         }
     },
+
+    //funcao que termina a etapa de montagem e faz tudo sumir
+    //depois disso passa uns segundos aparece a mutacao
     prosseguir: function () {
         if (!this.prosseguido) {
             this.prosseguido = true;

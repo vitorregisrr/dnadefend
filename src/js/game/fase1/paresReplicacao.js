@@ -12,7 +12,11 @@ var paresReplicacao = {
         mutacoesCriadas = 0;
     },
 
+    //função que é chamda no loop, para ir gerando os pares
     gen: function (x, y, par) {
+
+        //o switch surgiu pela necessidade de dizer se é mutação ou não, e futuramente poder ter flexibilidade
+        //ele gera o par de acordo com o par que foi chamado aleatoriamente lá no loop
         switch (par) {
 
             case 1:
@@ -119,6 +123,8 @@ var paresReplicacao = {
         this.bodys[this.bodys.length - 1].cont = false;
     },
 
+
+    //função de colisão entre os pares e o personagem
     colisao: function () {
         this.group.forEachAlive(function (quadrado) {
             var e = quadrado;
