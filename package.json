@@ -8,9 +8,10 @@
   "description": "Jogo educacional de Biologia, para ajudar no ensino da matéria Replicação Celular.\r As instruções de cada fase estão na tela de níveis.",
   "dependencies": {
     "gulp-concat": "^2.6.1",
-    "gulp-uglify": "^3.0.1"
+    "gulp-uglify": "^3.0.2",
+    "npm-check-updates": "^3.0.4"
   },
   "devDependencies": {
-    "gulp": "^3.9.1"
+    "gulp": "^4.0.0"
   }
 }
