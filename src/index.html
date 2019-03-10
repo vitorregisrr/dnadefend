@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <!-- metas-->
     <meta charset="utf-8" />
@@ -8,7 +9,7 @@
     <!-- //metas-->
     <link rel="stylesheet" href="assets/komikax.css">
     <style>
-    body{
+        body{
         padding:0;
         margin:0;
         background-color:#16000a;
@@ -17,58 +18,71 @@
         background-size: cover;
         background-repeat: no-repeat;
     }
+
     #game{
         margin:0;
         padding:0;
     }
     </style>
-    
+
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
 </head>
+
 <body>
     <h1 style="display:none">Defenda o DNA</h1>
-    <div id="game"  >
+    <div id="game">
     </div>
 </body>
+
 </html>
 
-   <!-- phaser lib-->
-   <script src='js/phaser.min.js'></script>
-   <script src="js/libs/modalLib.js"></script>
-   <script src="js/libs/tooltipLib.js"></script>
-   <script src="js/libs/phase-slide.js"></script>
-   <!-- phaser-->
-
-   
-   <!-- game logic--> 
-   <script src="js/game/main/configAcessibilidade.js"></script>
-   <script src="js/game/main/locucao.js"></script>
-   
-   <script src="js/game/states/bootState.js"></script>
-   <script src="js/game/states/preloadState.js"></script>
-   <script src="js/game/states/startState.js"></script>
-   <script src="js/game/states/levelState.js"></script>
-
-   <script src="js/game/fase1/gameStage1.js"></script>
-   <script src="js/game/fase1/paresReplicacao.js"></script>
-
-   <script src="js/game/fase2/gameStage2.js"></script>
-   <script src="js/game/fase2/paresTranscricao.js"></script>
-
-   <script src="js/game/fase3/gameStage3.js"></script>
-   <script src="js/game/fase3/rnaM.js"></script>
-   <script src="js/game/fase3/rnaT.js"></script>
-   <script src="js/game/fase3/gerador.js"></script>
-   <script src="js/game/fase3/amnoacidos.js"></script>
-   <script src="js/game/fase3/ribossomo.js"></script>
-
-   <script src="js/game/personagens/dnaPolimerase.js"></script>
-   <script src="js/game/personagens/mutacaoGen.js"></script>
+<!-- phaser lib-->
+<script src='js/phaser.min.js'></script>
+<script src="js/libs/modalLib.js"></script>
+<script src="js/libs/tooltipLib.js"></script>
+<script src="js/libs/phase-slide.js"></script>
+<!-- phaser-->
 
 
-   <script src="js/game/main/gameUI.js"></script>
-   <script src="js/game/main/plataformasGen.js"></script>
-   <script src="js/game/main/modalsGen.js"></script>
-   <script src="js/game/main/gameLoadStates.js"></script>
-   <script src="js/game/main/sounds.js"></script>
-   
-   <!-- //game logic-->  
+<!-- game logic-->
+<script src="js/game/main/configAcessibilidade.js"></script>
+<script src="js/game/main/locucao.js"></script>
+
+<script src="js/game/states/bootState.js"></script>
+<script src="js/game/states/preloadState.js"></script>
+<script src="js/game/states/startState.js"></script>
+<script src="js/game/states/levelState.js"></script>
+
+<script src="js/game/fase1/gameStage1.js"></script>
+<script src="js/game/fase1/paresReplicacao.js"></script>
+
+<script src="js/game/fase2/gameStage2.js"></script>
+<script src="js/game/fase2/paresTranscricao.js"></script>
+
+<script src="js/game/fase3/gameStage3.js"></script>
+<script src="js/game/fase3/rnaM.js"></script>
+<script src="js/game/fase3/rnaT.js"></script>
+<script src="js/game/fase3/gerador.js"></script>
+<script src="js/game/fase3/amnoacidos.js"></script>
+<script src="js/game/fase3/ribossomo.js"></script>
+
+<script src="js/game/personagens/dnaPolimerase.js"></script>
+<script src="js/game/personagens/mutacaoGen.js"></script>
+
+
+<script src="js/game/main/gameUI.js"></script>
+<script src="js/game/main/plataformasGen.js"></script>
+<script src="js/game/main/modalsGen.js"></script>
+<script src="js/game/main/gameLoadStates.js"></script>
+<script src="js/game/main/sounds.js"></script>
+
+<!-- //game logic-->
